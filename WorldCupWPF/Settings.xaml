@@ -1,0 +1,67 @@
+﻿<Window x:Class="WorldCupWPF.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorldCupWPF"
+        xmlns:prop="clr-namespace:WorldCupWPF.Resources"
+        mc:Ignorable="d" MinHeight="450" MinWidth="600" MaxHeight="450" Width="450" Icon="C:\Users\colin\Documents\Vaks\dotnet praktikum\LovroColinaProjekt\WorldCupDesktopApp\WorldCupDesktop\WorldCupWPF\Resources\Settings.png" FontSize="15" FontWeight="Bold" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Title="{x:Static prop:Resources.lblSet}">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0, 0.1" EndPoint="1, 0.1">
+                <GradientStop Color="Goldenrod" Offset="0"/>
+                <GradientStop Color="Gold" Offset="0.5"/>
+                <GradientStop Color="DarkGoldenrod" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        
+        <Label Content="{x:Static prop:Resources.lblSet}" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"/>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="{x:Static prop:Resources.pickScreenRes}"/>
+            <ComboBox x:Name="ddlResolution" Width="200">
+                <ComboBoxItem>Full Screen</ComboBoxItem>
+                <ComboBoxItem>600x800</ComboBoxItem>
+                <ComboBoxItem>768x1024</ComboBoxItem>
+                <ComboBoxItem>720x1280</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <Label Content="{x:Static prop:Resources.pickChampionship}" HorizontalAlignment="Center"/>
+            <RadioButton x:Name="rbMale" HorizontalAlignment="Center" Margin="5" Content="{x:Static prop:Resources.champMan}" GroupName="championship"/>
+            <RadioButton x:Name="rbFemale" HorizontalAlignment="Center" Margin="5" Content="{x:Static prop:Resources.champWoman}" GroupName="championship"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Label Content="{x:Static prop:Resources.pickLang}" HorizontalAlignment="Center"/>
+            <RadioButton x:Name="rbCroatian" HorizontalAlignment="Center" Margin="5" Content="{x:Static prop:Resources.langHrv}" GroupName="language"/>
+            <RadioButton x:Name="rbEnglish" HorizontalAlignment="Center" Margin="5" Content="{x:Static prop:Resources.langEng}" GroupName="language"/>
+        </StackPanel>
+
+
+        <Button x:Name="btnSave" KeyDown="btnSave_KeyDown" Content="{x:Static prop:Resources.btnOk}" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Click="btnSave_Click" IsDefault="True" Width="100">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnCancel" KeyDown="btnCancel_KeyDown" Content="{x:Static prop:Resources.btnCancel}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Click="btnCancel_Click" IsCancel="True" Width="100">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>
